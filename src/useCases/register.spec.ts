@@ -2,7 +2,6 @@ import { compare } from 'bcryptjs'
 import { expect, describe, it } from 'vitest'
 import { RegisterUseCase } from './register'
 import { InMemoryRepository } from '../repositories/in-memory/in-memory-use-repository'
-import { stringify } from 'querystring'
 import { UserAlreadyExistsError } from './errors/user-already-exists-email'
 
 describe('Register Use Case', () => {
@@ -49,8 +48,8 @@ describe('Register Use Case', () => {
       password: '123465',
     })
 
-    expect(async () => {
-      await registerUseCase.execute({
+    await expect(() => {
+      registerUseCase.execute({
         name: 'felipe',
         email,
         password: '123465',
