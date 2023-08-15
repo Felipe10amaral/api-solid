@@ -26,11 +26,11 @@ describe('Refresh Token (e2e)', () => {
     const cookies = authResponse.get('Set-Cookie')
 
     const response = await request(app.server)
-      .patch('/token/refresh')
+      .patch('/refresh/token')
       .set('Cookie', cookies)
       .send()
 
-    expect(response.status).toEqual(200)
+    expect(response.status).toEqual(201)
     expect(response.body).toEqual({
       token: expect.any(String),
     })

@@ -25,7 +25,7 @@ export async function refresh(request: FastifyRequest, reply: FastifyReply) {
   )
 
   return reply
-    .status(200)
+    .status(201)
     .setCookie('refreshToken', refreshToken, {
       path: '/',
       secure: true, // HTTPs (o frontend não vai conseguir ler o valor desse cookie como um valor primitivo(ex: string))

@@ -45,6 +45,7 @@ describe('Check-in History (e2e)', () => {
       .send()
 
     expect(response.statusCode).toEqual(200)
+
     expect(response.body.checkIns).toEqual([
       expect.objectContaining({
         gym_id: gym.id,
